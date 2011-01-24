@@ -1,0 +1,38 @@
+.TH run\-one 1 "9 Jan 2011" bikeshed "bikeshed"
+.SH NAME
+run\-one \- run just one instance at a time of some command and unique set of arguments (useful for cronjobs, eg)
+
+.SH SYNOPSIS
+\fBrun\-one\fP COMMAND [ARGS]
+
+.SH DESCRIPTION
+\fBrun\-one\fP is a wrapper script that runs no more than one unique instance of some command with a unique set of arguments.
+
+This is often useful with cronjobs, when you want no more than one copy running at a time.
+
+.SH EXAMPLE
+In one shell:
+
+ $ run\-one rsync -azP $HOME $USER@example.com:/srv/backup
+ foouser/
+ foouser/.bash_history
+       40298 100%   37.13MB/s    0:00:00 (xfer#1, to-check=3509/3516)
+ foouser/.viminfo
+       20352 100%   98.39kB/s    0:00:00 (xfer#3, to-check=3478/3516)
+ ...
+ sent 746228 bytes  received 413059 bytes  36802.76 bytes/sec
+ total size is 3732890955  speedup is 3219.99
+
+In another shell, while the first is still running:
+
+ $ run\-one rsync -azP $HOME $USER@example.com:/srv/backup
+ $ echo $?
+ 1
+
+.SH SEE ALSO
+\fBflock\fP(1)
+
+.SH AUTHOR
+This manpage and the utility was written by Dustin Kirkland <kirkland@ubuntu.com> for Ubuntu systems (but may be used by others).  Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL, or on the web at \fIhttp://www.gnu.org/licenses/gpl.txt\fP.

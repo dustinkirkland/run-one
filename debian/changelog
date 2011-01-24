@@ -1,0 +1,11 @@
+run-one (1.0) unreleased; urgency=low
+
+  * === added directory debian, === added directory debian/source,
+    debian/compat, debian/control, debian/copyright, debian/install,
+    debian/manpages, debian/rules, debian/source/format, run-one, run-
+    one.1:
+    - initial checkin
+    - moving over from the bikeshed package/project, to allow people to
+      install this without having to install the rest of bikeshed
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 00:31:40 -0600

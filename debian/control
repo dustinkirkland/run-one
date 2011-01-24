@@ -1,0 +1,17 @@
+Source: run-one
+Section: admin
+Priority: optional
+Maintainer: Dustin Kirkland <kirkland@ubuntu.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.1
+Homepage: http://launchpad.net/run-one
+
+Package: run-one
+Architecture: all
+Depends: ${misc:Depends}, coreutils, util-linux
+Breaks: bikeshed (<< 1.8)
+Replaces: bikeshed (<< 1.8)
+Enhances: cron, anacron
+Description: run just one instance of a command and its args at a time
+ This utility will run just one instance at a time of some command and
+ unique set of arguments (useful for cronjobs, eg).
