@@ -7,5 +7,6 @@ run-one (1.0) unreleased; urgency=low
     - initial checkin
     - moving over from the bikeshed package/project, to allow people to
       install this without having to install the rest of bikeshed
+  * run-one.1: fix doc
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 00:31:40 -0600
