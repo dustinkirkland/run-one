@@ -1,4 +1,4 @@
-run-one (1.0) unreleased; urgency=low
+run-one (1.0-0ubuntu1) natty; urgency=low
 
   * === added directory debian, === added directory debian/source,
     debian/compat, debian/control, debian/copyright, debian/install,
@@ -9,4 +9,4 @@ run-one (1.0) unreleased; urgency=low
       install this without having to install the rest of bikeshed
   * run-one.1: fix doc
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 00:31:40 -0600
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 01:00:20 -0600
