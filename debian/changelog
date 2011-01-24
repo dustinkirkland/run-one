@@ -1,6 +1,6 @@
 run-one (1.1) unreleased; urgency=low
 
-  * UNRELEASED
+  * COPYING: add a license file
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 01:00:23 -0600
 
