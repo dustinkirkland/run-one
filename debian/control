@@ -8,7 +8,7 @@ Homepage: http://launchpad.net/run-one
 
 Package: run-one
 Architecture: all
-Depends: ${misc:Depends}, coreutils, util-linux
+Depends: ${misc:Depends}, coreutils, procps, util-linux
 Breaks: bikeshed (<< 1.8)
 Replaces: bikeshed (<< 1.8)
 Enhances: cron, anacron

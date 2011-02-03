@@ -5,10 +5,14 @@ run\-one \- run just one instance at a time of some command and unique set of ar
 .SH SYNOPSIS
 \fBrun\-one\fP COMMAND [ARGS]
 
+\fBrun\-this\-one\fP COMMAND [ARGS]
+
 .SH DESCRIPTION
 \fBrun\-one\fP is a wrapper script that runs no more than one unique instance of some command with a unique set of arguments.
 
 This is often useful with cronjobs, when you want no more than one copy running at a time.
+
+\fBrun\-this\-one\fP is exactly like \fBrun\-one\fP, except that it will use \fBkillall\fP(1) to kill any currently processes matching the target commands and arguments.
 
 .SH EXAMPLE
 In one shell:
@@ -30,7 +34,7 @@ In another shell, while the first is still running:
  1
 
 .SH SEE ALSO
-\fBflock\fP(1)
+\fBflock\fP(1), \fBkillall\fP(1)
 
 .SH AUTHOR
 This manpage and the utility was written by Dustin Kirkland <kirkland@ubuntu.com> for Ubuntu systems (but may be used by others).  Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 published by the Free Software Foundation.

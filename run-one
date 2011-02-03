@@ -20,6 +20,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+set -x
+
 PROG="run-one"
 
 # Cache hashes here, to keep one user from DoS'ing another
@@ -29,6 +31,15 @@ mkdir -p "$DIR"
 # Calculate the hash of the command and arguments
 CMDHASH=$(echo "$@" | md5sum | awk '{print $1}')
 FLAG="$DIR/$CMDHASH"
+
+case "$(basename $0)" in
+	run-this-one)
+		ps="$@"
+		if pgrep -f "^$ps$" >/dev/null 2>&1; then
+			pkill -f "^$ps$"
+		fi
+	;;
+esac
 
 # Run the specified commands, assuming we can flock this command string's hash
 flock -xn "$FLAG" $@
