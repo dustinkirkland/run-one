@@ -3,6 +3,9 @@
 #    run-one - run just one instance at a time of some command and
 #              unique set of arguments (useful for cronjobs, eg)
 #
+#    run-this-one - kill any identical command/args processes
+#                   before running this one
+#
 #    Copyright (C) 2010 Dustin Kirkland <kirkland@ubuntu.com>
 #
 #    Authors:
@@ -20,8 +23,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-set -x
-
 PROG="run-one"
 
 # Cache hashes here, to keep one user from DoS'ing another
@@ -37,7 +38,7 @@ case "$(basename $0)" in
 	run-this-one)
 		ps="$@"
 		# Loop through matching pids
-		for p in $(pgrep -f "^$ps$" || true); do
+		for p in $(pgrep -u "$USER" -f "^$ps$" || true); do
 			# Try to kill pid
 			kill $p
 			# And then block until killed
