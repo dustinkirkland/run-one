@@ -20,6 +20,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+set -x
+
 PROG="run-one"
 
 # Cache hashes here, to keep one user from DoS'ing another
@@ -30,12 +32,25 @@ mkdir -p "$DIR"
 CMDHASH=$(echo "$@" | md5sum | awk '{print $1}')
 FLAG="$DIR/$CMDHASH"
 
+# Handle run-this-one invocation, by killing matching process first
 case "$(basename $0)" in
 	run-this-one)
 		ps="$@"
-		if pgrep -f "^$ps$" >/dev/null 2>&1; then
-			pkill -f "^$ps$"
-		fi
+		# Loop through matching pids
+		for p in $(pgrep -f "^$ps$" || true); do
+			# Try to kill pid
+			kill $p
+			# And then block until killed
+			while ps $p >/dev/null 2>&1; do
+				kill $p
+				sleep 1
+			done
+		done
+		# NOTE: Would love to use lsof, but it seems that flock()'s
+		# are not persistent enough, sometimes; use pgrep/pkill now.
+		# pid=$(lsof "$FLAG" | grep "^flock" | awk '{print $2}') || true
+		# [ -z "$pid" ] || kill $pid
+
 	;;
 esac
 
