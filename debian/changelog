@@ -1,4 +1,4 @@
-run-one (1.2) unreleased; urgency=low
+run-one (1.2-0ubuntu1) natty; urgency=low
 
   * === added symlink run-this-one, debian/control, debian/links, run-
     one, run-one.1:
@@ -7,7 +7,7 @@ run-one (1.2) unreleased; urgency=low
       -f|--force option to run-one
   * run-one.1: documentation and examples updated
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 01:13:39 -0600
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Fri, 04 Feb 2011 10:33:29 -0700
 
 run-one (1.1-0ubuntu1) natty; urgency=low
 
