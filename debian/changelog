@@ -5,6 +5,7 @@ run-one (1.2) unreleased; urgency=low
     - add the "run-this-one" utility, which kills any processes that
       precisely match the target command and arguments; sort of like a
       -f|--force option to run-one
+  * run-one.1: documentation and examples updated
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 24 Jan 2011 01:13:39 -0600
 
