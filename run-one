@@ -56,4 +56,4 @@ case "$(basename $0)" in
 esac
 
 # Run the specified commands, assuming we can flock this command string's hash
-flock -xn "$FLAG" $@
+flock -xn "$FLAG" "$@"
