@@ -1,8 +1,8 @@
-run-one (1.3) unreleased; urgency=low
+run-one (1.3-0ubuntu1) natty; urgency=low
 
   * run-one: must quote $@, in case $@ contains quotes
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Fri, 04 Feb 2011 10:33:32 -0700
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Sat, 19 Feb 2011 22:06:11 -0600
 
 run-one (1.2-0ubuntu1) natty; urgency=low
 
