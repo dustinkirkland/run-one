@@ -4,6 +4,8 @@ run-one (1.4) unreleased; urgency=low
     target is run-one:
     - add a keep-one-running utility;  respawns a run-one job
     - document it
+  * debian/links:
+    - fix links
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sat, 19 Feb 2011 22:06:13 -0600
 
