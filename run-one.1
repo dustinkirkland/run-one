@@ -7,12 +7,16 @@ run\-one \- run just one instance at a time of some command and unique set of ar
 
 \fBrun\-this\-one\fP COMMAND [ARGS]
 
+\fBkeep\-one\-running\fP COMMAND [ARGS]
+
 .SH DESCRIPTION
 \fBrun\-one\fP is a wrapper script that runs no more than one unique instance of some command with a unique set of arguments.
 
 This is often useful with cronjobs, when you want no more than one copy running at a time.
 
 \fBrun\-this\-one\fP is exactly like \fBrun\-one\fP, except that it will use \fBpgrep\fP(1) and \fBkill\fP(1) to find and kill any running processes owned by the user and matching the target commands and arguments.  Note that \fBrun\-this\-one\fP will block while trying to kill matching processes, until all matching processes are dead.
+
+\fBkeep\-one\-running\fP operates exactly like \fBrun\-one\fP except that it respawns "COMMAND [ARGS]" any time COMMAND exits (zero or non-zero).
 
 .SH EXAMPLE
 In one shell:
@@ -48,6 +52,11 @@ In another shell:
  ...
 
 And note that the process in the first shell was killed.
+
+You might want to keep one ssh connection up and running all the time, with:
+
+ $ keep-one-running ssh -N -C -L 3128:localhost:3128 -L 7778:localhost:7778 example.com &
+
 
 .SH SEE ALSO
 \fBflock\fP(1), \fBkill\fP(1), \fBpgrep\fP(1)

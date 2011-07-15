@@ -6,6 +6,8 @@ run-one (1.4) unreleased; urgency=low
     - document it
   * debian/links:
     - fix links
+  * run-one.1:
+    - add keep-one-running documentation
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sat, 19 Feb 2011 22:06:13 -0600
 
