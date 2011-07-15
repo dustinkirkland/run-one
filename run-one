@@ -6,7 +6,9 @@
 #    run-this-one - kill any identical command/args processes
 #                   before running this one
 #
-#    Copyright (C) 2010 Dustin Kirkland <kirkland@ubuntu.com>
+#    keep-one-running - run-one, but respawn every time that one exits
+#
+#    Copyright (C) 2010-2011 Dustin Kirkland <kirkland@ubuntu.com>
 #
 #    Authors:
 #        Dustin Kirkland <kirkland@ubuntu.com>
@@ -35,6 +37,10 @@ FLAG="$DIR/$CMDHASH"
 
 # Handle run-this-one invocation, by killing matching process first
 case "$(basename $0)" in
+	run-one)
+		# Run the specified commands, assuming we can flock this command string's hash
+		flock -xn "$FLAG" "$@"
+	;;
 	run-this-one)
 		ps="$@"
 		# Loop through matching pids
@@ -51,9 +57,14 @@ case "$(basename $0)" in
 		# are not persistent enough, sometimes; use pgrep/pkill now.
 		# pid=$(lsof "$FLAG" | grep "^flock" | awk '{print $2}') || true
 		# [ -z "$pid" ] || kill $pid
-
+		# Run the specified commands, assuming we can flock this command string's hash
+		flock -xn "$FLAG" "$@"
+	;;
+	keep-one-running)
+		while true; do
+			# Run the specified commands, assuming we can flock this command string's hash
+			set +e
+			flock -xn "$FLAG" "$@"
+		done
 	;;
 esac
-
-# Run the specified commands, assuming we can flock this command string's hash
-flock -xn "$FLAG" "$@"

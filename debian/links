@@ -1,1 +1,4 @@
 usr/bin/run-one usr/bin/run-this-one
+usr/bin/run-one usr/bin/keep-one-running
+usr/share/man/man1/run-one usr/share/man/man1/run-this-one
+usr/share/man/man1/run-one usr/share/man/man1/keep-one-running

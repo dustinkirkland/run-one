@@ -1,6 +1,9 @@
 run-one (1.4) unreleased; urgency=low
 
-  * UNRELEASED
+  * === added symlink keep-one-running, debian/links, run-one, ===
+    target is run-one:
+    - add a keep-one-running utility;  respawns a run-one job
+    - document it
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sat, 19 Feb 2011 22:06:13 -0600
 
