@@ -1,11 +1,11 @@
-run-one (1.5) unreleased; urgency=low
+run-one (1.5-0ubuntu1) oneiric; urgency=low
 
   * debian/control, run-one:
     - incremental backoff when keep-one-running utilities fail
     - log a message when one fails, and sleeping before a retry
       up to a maximum of 5 minutes
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Fri, 15 Jul 2011 17:46:21 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 18 Jul 2011 17:23:06 -0500
 
 run-one (1.4-0ubuntu1) oneiric; urgency=low
 
