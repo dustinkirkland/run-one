@@ -61,10 +61,20 @@ case "$(basename $0)" in
 		flock -xn "$FLAG" "$@"
 	;;
 	keep-one-running)
+		backoff=1
 		while true; do
 			# Run the specified commands, assuming we can flock this command string's hash
 			set +e
 			flock -xn "$FLAG" "$@"
+			if [ "$?" = 0 ]; then
+				# Last run finished successfully, reset to minimum back-off of 1 second
+				backoff=1
+			else
+				# Last run failed, so slow down the retries
+				backoff=$((backoff + 1))
+				logger -t "$(basename $0)" "[$@] last run failed; sleeping [$backoff] seconds before next run"
+			fi
+			sleep $backoff
 		done
 	;;
 esac
