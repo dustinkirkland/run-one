@@ -1,4 +1,4 @@
-run-one (1.6) unreleased; urgency=low
+run-one (1.6-0ubuntu1) oneiric; urgency=low
 
   * run-one:
     - bug introduced by trying to print the full command in logger
@@ -6,7 +6,7 @@ run-one (1.6) unreleased; urgency=low
   * debian/control:
     - fix lintian errors, no need to depend on essential packages
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 18 Jul 2011 17:23:08 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 19 Jul 2011 13:27:07 -0500
 
 run-one (1.5-0ubuntu1) oneiric; urgency=low
 
