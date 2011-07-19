@@ -3,6 +3,8 @@ run-one (1.6) unreleased; urgency=low
   * run-one:
     - bug introduced by trying to print the full command in logger
     - show the pid, instead, and look up that way
+  * debian/control:
+    - fix lintian errors, no need to depend on essential packages
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 18 Jul 2011 17:23:08 -0500
 
