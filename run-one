@@ -73,7 +73,7 @@ case "$(basename $0)" in
 				# Last run failed, so slow down the retries (up to 5 minutes)
 				backoff=$((backoff + 1))
 				[ $backoff -gt 300 ] && backoff=300
-				logger -t "$(basename $0)[$$]" "[$@] last run failed; sleeping [$backoff] seconds before next run"
+				logger -t "$(basename $0)[$$]" "last run failed; sleeping [$backoff] seconds before next run"
 			fi
 			sleep $backoff
 		done

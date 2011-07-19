@@ -1,6 +1,8 @@
 run-one (1.6) unreleased; urgency=low
 
-  * UNRELEASED
+  * run-one:
+    - bug introduced by trying to print the full command in logger
+    - show the pid, instead, and look up that way
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 18 Jul 2011 17:23:08 -0500
 
