@@ -53,10 +53,11 @@ case "$(basename $0)" in
 				sleep 1
 			done
 		done
-		# NOTE: Would love to use lsof, but it seems that flock()'s
-		# are not persistent enough, sometimes; use pgrep/pkill now.
-		# pid=$(lsof "$FLAG" | grep "^flock" | awk '{print $2}') || true
-		# [ -z "$pid" ] || kill $pid
+		# Also try to use lsof, but it seems that flock()'s
+		# are not always persistent enough, so this is purely auxilliary.
+		pid=$(lsof "$FLAG" | awk '{print $2}' | grep "^[0-9]") || true
+		[ -z "$pid" ] || kill $pid
+		sleep 0.1
 		# Run the specified commands, assuming we can flock this command string's hash
 		flock -xn "$FLAG" "$@"
 	;;

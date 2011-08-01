@@ -1,6 +1,7 @@
 run-one (1.7) unreleased; urgency=low
 
-  * UNRELEASED
+  * run-one:
+    - re-enable the lsof keep-one-running cleanup
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 19 Jul 2011 13:27:09 -0500
 
