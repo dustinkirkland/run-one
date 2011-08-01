@@ -1,9 +1,9 @@
-run-one (1.7) unreleased; urgency=low
+run-one (1.7-0ubuntu1) oneiric; urgency=low
 
   * run-one:
     - re-enable the lsof keep-one-running cleanup
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 19 Jul 2011 13:27:09 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 01 Aug 2011 12:02:19 -0500
 
 run-one (1.6-0ubuntu1) oneiric; urgency=low
 
