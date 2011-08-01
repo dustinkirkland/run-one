@@ -1,3 +1,9 @@
+run-one (1.8) unreleased; urgency=low
+
+  * UNRELEASED
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 01 Aug 2011 12:02:23 -0500
+
 run-one (1.7-0ubuntu1) oneiric; urgency=low
 
   * run-one:
