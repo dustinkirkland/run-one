@@ -37,17 +37,18 @@ DIR="$HOME/.cache/$PROG"
 mkdir -p "$DIR"
 
 # Calculate the hash of the command and arguments
-CMDHASH=$(echo "$@" | md5sum | awk '{print $1}')
+CMD="$@"
+CMDHASH=$(echo "$CMD" | md5sum | awk '{print $1}')
 FLAG="$DIR/$CMDHASH"
 
 # Handle run-this-one invocation, by killing matching process first
 case "$(basename $0)" in
 	run-one)
-		# Run the specified commands, assuming we can flock this command string's hash
-		flock -xn "$FLAG" "$@"
+		# Run the specified command, assuming we can flock this command string's hash
+		flock -xn "$FLAG" -c "$CMD"
 	;;
 	run-this-one)
-		ps="$@"
+		ps="$CMD"
 		# Loop through matching pids
 		for p in $(pgrep -u "$USER" -f "^$ps$" || true); do
 			# Try to kill pid
@@ -63,15 +64,15 @@ case "$(basename $0)" in
 		pid=$(lsof "$FLAG" | awk '{print $2}' | grep "^[0-9]") || true
 		[ -z "$pid" ] || kill $pid
 		sleep 0.1
-		# Run the specified commands, assuming we can flock this command string's hash
-		flock -xn "$FLAG" "$@"
+		# Run the specified command, assuming we can flock this command string's hash
+		flock -xn "$FLAG" -c "$CMD"
 	;;
 	keep-one-running)
 		backoff=1
 		while true; do
-			# Run the specified commands, assuming we can flock this command string's hash
+			# Run the specified command, assuming we can flock this command string's hash
 			set +e
-			flock -xn "$FLAG" "$@"
+			flock -xn "$FLAG" -c "$CMD"
 			if [ "$?" = 0 ]; then
 				# Last run finished successfully, reset to minimum back-off of 1 second
 				backoff=1
