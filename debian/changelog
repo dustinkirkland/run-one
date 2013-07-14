@@ -1,4 +1,4 @@
-run-one (1.8) unreleased; urgency=low
+run-one (1.8-0ubuntu1) saucy; urgency=low
 
   [ Dustin Kirkland ]
   * run-one: LP: #1189950
@@ -10,7 +10,7 @@ run-one (1.8) unreleased; urgency=low
   [ https://launchpad.net/~toobuntu ]
   * run-one: LP: #1145461
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 01 Aug 2011 12:02:23 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 14 Jul 2013 11:03:07 -0500
 
 run-one (1.7-0ubuntu1) oneiric; urgency=low
 
