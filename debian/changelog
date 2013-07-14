@@ -3,6 +3,9 @@ run-one (1.8) unreleased; urgency=low
   [ Dustin Kirkland ]
   * run-one: LP: #1189950
     - handle empty argument situation
+  * run-one: LP: #1190017
+    - sleep just a little longer (half second) when waiting for process
+      to die in run-this-one
 
   [ https://launchpad.net/~toobuntu ]
   * run-one: LP: #1145461

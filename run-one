@@ -63,7 +63,7 @@ case "$(basename $0)" in
 		# are not always persistent enough, so this is purely auxilliary.
 		pid=$(lsof "$FLAG" | awk '{print $2}' | grep "^[0-9]") || true
 		[ -z "$pid" ] || kill $pid
-		sleep 0.1
+		sleep 0.5
 		# Run the specified command, assuming we can flock this command string's hash
 		flock -xn "$FLAG" -c "$CMD"
 	;;
