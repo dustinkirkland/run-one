@@ -27,6 +27,11 @@
 
 PROG="run-one"
 
+if [ $# -eq 0 ]; then
+	echo "ERROR: no arguments specified" 1>&2
+	exit 1
+fi
+
 # Cache hashes here, to keep one user from DoS'ing another
 DIR="$HOME/.cache/$PROG"
 mkdir -p "$DIR"
