@@ -1,9 +1,9 @@
-run-one (1.9) unreleased; urgency=low
+run-one (1.9-0ubuntu1) saucy; urgency=low
 
   * run-one:
     - silence lsof errors
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 14 Jul 2013 11:03:12 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 16 Jul 2013 14:55:47 -0500
 
 run-one (1.8-0ubuntu1) saucy; urgency=low
 
