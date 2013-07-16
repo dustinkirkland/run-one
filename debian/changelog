@@ -1,6 +1,7 @@
 run-one (1.9) unreleased; urgency=low
 
-  * UNRELEASED
+  * run-one:
+    - silence lsof errors
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 14 Jul 2013 11:03:12 -0500
 

@@ -61,7 +61,7 @@ case "$(basename $0)" in
 		done
 		# Also try to use lsof, but it seems that flock()'s
 		# are not always persistent enough, so this is purely auxilliary.
-		pid=$(lsof "$FLAG" | awk '{print $2}' | grep "^[0-9]") || true
+		pid=$(lsof "$FLAG" 2>/dev/null | awk '{print $2}' | grep "^[0-9]") || true
 		[ -z "$pid" ] || kill $pid
 		sleep 0.5
 		# Run the specified command, assuming we can flock this command string's hash
