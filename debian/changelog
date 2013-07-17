@@ -1,9 +1,9 @@
-run-one (1.10) unreleased; urgency=low
+run-one (1.10-0ubuntu1) saucy; urgency=low
 
   * No changes
   * Re-release, due to minor errors in release script
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 16 Jul 2013 14:55:49 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 17 Jul 2013 09:42:27 -0500
 
 run-one (1.9-0ubuntu1) saucy; urgency=low
 
