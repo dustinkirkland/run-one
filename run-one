@@ -41,8 +41,8 @@ CMD="$@"
 CMDHASH=$(echo "$CMD" | md5sum | awk '{print $1}')
 FLAG="$DIR/$CMDHASH"
 
-# Handle run-this-one invocation, by killing matching process first
-case "$(basename $0)" in
+base="$(basename $0)"
+case "$base" in
 	run-one)
 		# Run the specified command, assuming we can flock this command string's hash
 		flock -xn "$FLAG" -c "$CMD"
@@ -67,20 +67,24 @@ case "$(basename $0)" in
 		# Run the specified command, assuming we can flock this command string's hash
 		flock -xn "$FLAG" -c "$CMD"
 	;;
-	keep-one-running)
+	keep-one-running|run-until-success|run-until-failure)
 		backoff=1
 		while true; do
 			# Run the specified command, assuming we can flock this command string's hash
 			set +e
 			flock -xn "$FLAG" -c "$CMD"
 			if [ "$?" = 0 ]; then
+				# If we were waiting for success, we're done
+				[ "$base" = "run-until-success" ] && exit $?
 				# Last run finished successfully, reset to minimum back-off of 1 second
 				backoff=1
 			else
+				# If we were waiting for failure, we're done
+				[ "$base" = "run-until-failure" ] && exit $?
 				# Last run failed, so slow down the retries (up to 5 minutes)
 				backoff=$((backoff + 1))
 				[ $backoff -gt 300 ] && backoff=300
-				logger -t "$(basename $0)[$$]" "last run failed; sleeping [$backoff] seconds before next run"
+				logger -t "${base}[$$]" "last run failed; sleeping [$backoff] seconds before next run"
 			fi
 			sleep $backoff
 		done

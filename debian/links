@@ -1,4 +1,8 @@
 usr/bin/run-one usr/bin/run-this-one
 usr/bin/run-one usr/bin/keep-one-running
+usr/bin/run-one usr/bin/run-until-success
+usr/bin/run-one usr/bin/run-until-failure
 usr/share/man/man1/run-one.1 usr/share/man/man1/run-this-one.1
 usr/share/man/man1/run-one.1 usr/share/man/man1/keep-one-running.1
+usr/share/man/man1/run-one.1 usr/share/man/man1/run-until-success.1
+usr/share/man/man1/run-one.1 usr/share/man/man1/run-until-failure.1

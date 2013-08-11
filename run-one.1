@@ -9,6 +9,10 @@ run\-one \- run just one instance at a time of some command and unique set of ar
 
 \fBkeep\-one\-running\fP COMMAND [ARGS]
 
+\fBrun\-until\-success\fP COMMAND [ARGS]
+
+\fBrun\-until\-failure\fP COMMAND [ARGS]
+
 .SH DESCRIPTION
 \fBrun\-one\fP is a wrapper script that runs no more than one unique instance of some command with a unique set of arguments.
 
@@ -17,6 +21,10 @@ This is often useful with cronjobs, when you want no more than one copy running 
 \fBrun\-this\-one\fP is exactly like \fBrun\-one\fP, except that it will use \fBpgrep\fP(1) and \fBkill\fP(1) to find and kill any running processes owned by the user and matching the target commands and arguments.  Note that \fBrun\-this\-one\fP will block while trying to kill matching processes, until all matching processes are dead.
 
 \fBkeep\-one\-running\fP operates exactly like \fBrun\-one\fP except that it respawns "COMMAND [ARGS]" any time COMMAND exits (zero or non-zero).
+
+\fBrun\-until\-success\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits successfully (ie, exists zero).
+
+\fBrun\-until\-failure\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits with failure (ie, exists non-zero).
 
 .SH EXAMPLE
 In one shell:
