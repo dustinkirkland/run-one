@@ -4,6 +4,9 @@ run-one (1.11) unreleased; urgency=low
     success, debian/links, run-one, run-one.1, === target is urun-one:
     - add two new twists on keep-one-running, enabling a user to keep
       retrying a command until it succeeds or fails
+  * keep-one-running:
+    - sleep a maximum of 60 seconds
+    - back down a little more slowly
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 17 Jul 2013 09:42:29 -0500
 

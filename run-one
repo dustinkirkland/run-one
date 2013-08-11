@@ -68,7 +68,8 @@ case "$base" in
 		flock -xn "$FLAG" -c "$CMD"
 	;;
 	keep-one-running|run-until-success|run-until-failure)
-		backoff=1
+		backoff=0
+		retries=0
 		while true; do
 			# Run the specified command, assuming we can flock this command string's hash
 			set +e
@@ -77,15 +78,18 @@ case "$base" in
 				# If we were waiting for success, we're done
 				[ "$base" = "run-until-success" ] && exit $?
 				# Last run finished successfully, reset to minimum back-off of 1 second
-				backoff=1
+				backoff=0
+				backoff=0
 			else
 				# If we were waiting for failure, we're done
 				[ "$base" = "run-until-failure" ] && exit $?
-				# Last run failed, so slow down the retries (up to 5 minutes)
-				backoff=$((backoff + 1))
-				[ $backoff -gt 300 ] && backoff=300
+				# Last run failed, so slow down the retries
+				retries=$((retries + 1))
+				backoff=$((retries / 10))
 				logger -t "${base}[$$]" "last run failed; sleeping [$backoff] seconds before next run"
 			fi
+			# Don't sleep more than 60 seconds
+			[ $backoff -gt 60 ] && backoff=60
 			sleep $backoff
 		done
 	;;
