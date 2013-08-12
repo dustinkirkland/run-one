@@ -1,4 +1,4 @@
-run-one (1.11) unreleased; urgency=low
+run-one (1.11-0ubuntu1) saucy; urgency=low
 
   * === added symlink run-until-failure, === added symlink run-until-
     success, debian/links, run-one, run-one.1, === target is urun-one:
@@ -8,7 +8,7 @@ run-one (1.11) unreleased; urgency=low
     - sleep a maximum of 60 seconds
     - back down a little more slowly
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 17 Jul 2013 09:42:29 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 12 Aug 2013 14:00:54 +0100
 
 run-one (1.10-0ubuntu1) saucy; urgency=low
 
