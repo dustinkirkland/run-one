@@ -1,6 +1,8 @@
 run-one (1.12) unreleased; urgency=low
 
-  * UNRELEASED
+  * Release for Debian
+  * debian/control:
+    - bump standards
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 12 Aug 2013 14:00:56 +0100
 
