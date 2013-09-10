@@ -22,9 +22,9 @@ This is often useful with cronjobs, when you want no more than one copy running 
 
 \fBkeep\-one\-running\fP operates exactly like \fBrun\-one\fP except that it respawns "COMMAND [ARGS]" any time COMMAND exits (zero or non-zero).
 
-\fBrun\-until\-success\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits successfully (ie, exists zero).
+\fBrun\-until\-success\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits successfully (ie, exits zero).
 
-\fBrun\-until\-failure\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits with failure (ie, exists non-zero).
+\fBrun\-until\-failure\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits with failure (ie, exits non-zero).
 
 .SH EXAMPLE
 In one shell:

@@ -3,6 +3,8 @@ run-one (1.13) unreleased; urgency=low
   * === added directory img, img/run-one_14.png, img/run-one_192.png,
     img/run-one_64.png:
     - added icons
+  * run-one.1:
+    - fix two typos
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 18 Aug 2013 22:11:18 -0500
 
