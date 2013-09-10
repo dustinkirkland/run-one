@@ -6,11 +6,11 @@
 #    run-this-one - kill any identical command/args processes
 #                   before running this one
 #
-#    run-constantly - run-one, but respawn every time that one exits
+#    run-one-constantly - run-one, but respawn every time that one exits
 #
-#    run-until-success - run-one, but respawn until a successful exit
+#    run-one-until-success - run-one, but respawn until a successful exit
 #
-#    run-until-failure - run-one, but respawn until an unsuccessful exit
+#    run-one-until-failure - run-one, but respawn until an unsuccessful exit
 #
 #    Copyright (C) 2010-2013 Dustin Kirkland <kirkland@ubuntu.com>
 #
@@ -71,7 +71,7 @@ case "$base" in
 		# Run the specified command, assuming we can flock this command string's hash
 		flock -xn "$FLAG" -c "$CMD"
 	;;
-	keep-one-running|run-constantly|run-until-success|run-until-failure)
+	keep-one-running|run-one-constantly|run-one-until-success|run-one-until-failure)
 		backoff=0
 		retries=0
 		while true; do
@@ -80,13 +80,13 @@ case "$base" in
 			flock -xn "$FLAG" -c "$CMD"
 			if [ "$?" = 0 ]; then
 				# If we were waiting for success, we're done
-				[ "$base" = "run-until-success" ] && exit $?
+				[ "$base" = "run-one-until-success" ] && exit $?
 				# Last run finished successfully, reset to minimum back-off of 1 second
 				backoff=0
 				backoff=0
 			else
 				# If we were waiting for failure, we're done
-				[ "$base" = "run-until-failure" ] && exit $?
+				[ "$base" = "run-one-until-failure" ] && exit $?
 				# Last run failed, so slow down the retries
 				retries=$((retries + 1))
 				backoff=$((retries / 10))

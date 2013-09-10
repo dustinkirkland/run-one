@@ -10,6 +10,11 @@ run-one (1.13) unreleased; urgency=low
     - add an alias, run-constantly -> keep-one-running
     - I've never liked that the keep-one-running command didn't start with
       "run-" something
+  * debian/links, === renamed symlink run-constantly => run-one-
+    constantly, === renamed symlink run-until-failure => run-one-until-
+    failure, === renamed symlink run-until-success => run-one-until-
+    success, run-one, run-one.1:
+    - add -one into the binary name as this is very important
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 18 Aug 2013 22:11:18 -0500
 
