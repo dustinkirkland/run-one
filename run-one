@@ -6,9 +6,13 @@
 #    run-this-one - kill any identical command/args processes
 #                   before running this one
 #
-#    keep-one-running - run-one, but respawn every time that one exits
+#    run-constantly - run-one, but respawn every time that one exits
 #
-#    Copyright (C) 2010-2011 Dustin Kirkland <kirkland@ubuntu.com>
+#    run-until-success - run-one, but respawn until a successful exit
+#
+#    run-until-failure - run-one, but respawn until an unsuccessful exit
+#
+#    Copyright (C) 2010-2013 Dustin Kirkland <kirkland@ubuntu.com>
 #
 #    Authors:
 #        Dustin Kirkland <kirkland@ubuntu.com>
@@ -67,7 +71,7 @@ case "$base" in
 		# Run the specified command, assuming we can flock this command string's hash
 		flock -xn "$FLAG" -c "$CMD"
 	;;
-	keep-one-running|run-until-success|run-until-failure)
+	keep-one-running|run-constantly|run-until-success|run-until-failure)
 		backoff=0
 		retries=0
 		while true; do

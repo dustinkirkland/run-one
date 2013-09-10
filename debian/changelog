@@ -5,6 +5,11 @@ run-one (1.13) unreleased; urgency=low
     - added icons
   * run-one.1:
     - fix two typos
+  * === added symlink run-constantly, debian/links, run-one, run-one.1,
+    === target is urun-one:
+    - add an alias, run-constantly -> keep-one-running
+    - I've never liked that the keep-one-running command didn't start with
+      "run-" something
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 18 Aug 2013 22:11:18 -0500
 

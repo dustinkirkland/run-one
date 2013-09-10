@@ -7,6 +7,8 @@ run\-one \- run just one instance at a time of some command and unique set of ar
 
 \fBrun\-this\-one\fP COMMAND [ARGS]
 
+\fBrun\-constantly\fP COMMAND [ARGS]
+
 \fBkeep\-one\-running\fP COMMAND [ARGS]
 
 \fBrun\-until\-success\fP COMMAND [ARGS]
@@ -20,11 +22,13 @@ This is often useful with cronjobs, when you want no more than one copy running 
 
 \fBrun\-this\-one\fP is exactly like \fBrun\-one\fP, except that it will use \fBpgrep\fP(1) and \fBkill\fP(1) to find and kill any running processes owned by the user and matching the target commands and arguments.  Note that \fBrun\-this\-one\fP will block while trying to kill matching processes, until all matching processes are dead.
 
-\fBkeep\-one\-running\fP operates exactly like \fBrun\-one\fP except that it respawns "COMMAND [ARGS]" any time COMMAND exits (zero or non-zero).
+\fBrun\-constantly\fP operates exactly like \fBrun\-one\fP except that it respawns "COMMAND [ARGS]" any time COMMAND exits (zero or non-zero).
 
-\fBrun\-until\-success\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits successfully (ie, exits zero).
+\fBkeep\-one\-running\fP is an alias for \fBrun\-constantly\fP.
 
-\fBrun\-until\-failure\fP operates exactly like \fBkeep\-one\-running\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits with failure (ie, exits non-zero).
+\fBrun\-until\-success\fP operates exactly like \fBrun\-constantly\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits successfully (ie, exits zero).
+
+\fBrun\-until\-failure\fP operates exactly like \fBrun\-constantly\fP except that it respawns "COMMAND [ARGS]" until COMMAND exits with failure (ie, exits non-zero).
 
 .SH EXAMPLE
 In one shell:
@@ -63,7 +67,7 @@ And note that the process in the first shell was killed.
 
 You might want to keep one ssh connection up and running all the time, with:
 
- $ keep-one-running ssh -N -C -L 3128:localhost:3128 -L 7778:localhost:7778 example.com &
+ $ run-constantly ssh -N -C -L 3128:localhost:3128 -L 7778:localhost:7778 example.com &
 
 
 .SH SEE ALSO
