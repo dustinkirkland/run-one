@@ -1,4 +1,4 @@
-run-one (1.13) unreleased; urgency=low
+run-one (1.13-0ubuntu1) saucy; urgency=low
 
   * === added directory img, img/run-one_14.png, img/run-one_192.png,
     img/run-one_64.png:
@@ -16,7 +16,7 @@ run-one (1.13) unreleased; urgency=low
     success, run-one, run-one.1:
     - add -one into the binary name as this is very important
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 18 Aug 2013 22:11:18 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 10 Sep 2013 23:50:41 -0500
 
 run-one (1.12-0ubuntu1) saucy; urgency=low
 
