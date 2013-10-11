@@ -1,10 +1,10 @@
-run-one (1.14) unreleased; urgency=low
+run-one (1.14-0ubuntu1) saucy; urgency=low
 
   * run-one: LP: #1238318
     - fix regression, $@ handles positional arguments correctly,
       whereas $CMD does not, drop -c
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 10 Sep 2013 23:50:44 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Fri, 11 Oct 2013 14:49:08 -0500
 
 run-one (1.13-0ubuntu1) saucy; urgency=low
 
