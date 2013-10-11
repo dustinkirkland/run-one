@@ -1,6 +1,8 @@
 run-one (1.14) unreleased; urgency=low
 
-  * UNRELEASED
+  * run-one: LP: #1238318
+    - fix regression, $@ handles positional arguments correctly,
+      whereas $CMD does not
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 10 Sep 2013 23:50:44 -0500
 
