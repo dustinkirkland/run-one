@@ -49,7 +49,7 @@ base="$(basename $0)"
 case "$base" in
 	run-one)
 		# Run the specified command, assuming we can flock this command string's hash
-		flock -xn "$FLAG" -c "$@"
+		flock -xn "$FLAG" "$@"
 	;;
 	run-this-one)
 		ps="$CMD"
@@ -69,7 +69,7 @@ case "$base" in
 		[ -z "$pid" ] || kill $pid
 		sleep 0.5
 		# Run the specified command, assuming we can flock this command string's hash
-		flock -xn "$FLAG" -c "$@"
+		flock -xn "$FLAG" "$@"
 	;;
 	keep-one-running|run-one-constantly|run-one-until-success|run-one-until-failure)
 		backoff=0
@@ -77,7 +77,7 @@ case "$base" in
 		while true; do
 			# Run the specified command, assuming we can flock this command string's hash
 			set +e
-			flock -xn "$FLAG" -c "$@"
+			flock -xn "$FLAG" "$@"
 			if [ "$?" = 0 ]; then
 				# If we were waiting for success, we're done
 				[ "$base" = "run-one-until-success" ] && exit $?
