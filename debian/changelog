@@ -1,8 +1,8 @@
-run-one (1.16) unreleased; urgency=low
+run-one (1.16-0ubuntu1) trusty; urgency=low
 
   * rebuild for trusty
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 29 Oct 2013 16:33:13 -0500
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 29 Oct 2013 16:43:28 -0500
 
 run-one (1.15-0ubuntu1) trusty; urgency=low
 
