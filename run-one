@@ -37,7 +37,21 @@ if [ $# -eq 0 ]; then
 fi
 
 # Cache hashes here, to keep one user from DoS'ing another
-DIR="$HOME/.cache/$PROG"
+# Test if home is writeable and owned by the current user;
+# which is not always the case -- e.g. daemon
+USER=$(id -un)
+for i in "${HOME}" "/dev/shm/${PROG}_${USER}"*; do
+	if [ -w "$i" ] && [ -O "$i" ]; then
+		DIR="$i"
+		break
+	fi
+done
+if [ -w "${DIR}" ] && [ -O "${DIR}" ]; then
+	DIR="${DIR}/.cache/${PROG}"
+else
+	DIR=$(mktemp -d "/dev/shm/${PROG}_${USER}_XXXXXXXX")
+	DIR="${DIR}/.cache/${PROG}"
+fi
 mkdir -p "$DIR"
 
 # Calculate the hash of the command and arguments

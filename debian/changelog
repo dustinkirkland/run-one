@@ -1,6 +1,9 @@
 run-one (1.17) unreleased; urgency=low
 
-  * UNRELEASED
+  * run-one: LP: #1269624
+    - ensure that users who either have no home directory, or cannot
+      write to their home directory (e.g. daemon), can use run-one
+      properly
 
  -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 29 Oct 2013 16:43:31 -0500
 
