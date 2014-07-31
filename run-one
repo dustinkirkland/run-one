@@ -97,7 +97,6 @@ case "$base" in
 				[ "$base" = "run-one-until-success" ] && exit $?
 				# Last run finished successfully, reset to minimum back-off of 1 second
 				backoff=0
-				backoff=0
 			else
 				# If we were waiting for failure, we're done
 				[ "$base" = "run-one-until-failure" ] && exit $?
