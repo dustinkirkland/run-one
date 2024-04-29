@@ -1,11 +1,11 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: run-one
 Upstream-Contact: Dustin Kirkland <dustin.kirkland@gmail.com>
-Source: http://launchpad.net/run-one
+Source: https://github.com/dustinkirkland/run-one
 
 Files: *
 Copyright:  2011-2013, Canonical Ltd.
-            2011-2013, Dustin Kirkland <dustin.kirkland@gmail.com>
+            2011-2024, Dustin Kirkland <dustin.kirkland@gmail.com>
 License: GPL-3
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

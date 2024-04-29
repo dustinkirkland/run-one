@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Dustin Kirkland <kirkland@ubuntu.com>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.4
-Homepage: http://launchpad.net/run-one
+Homepage: https://github.com/dustinkirkland/run-one
 
 Package: run-one
 Architecture: all

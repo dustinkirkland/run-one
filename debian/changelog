@@ -2,8 +2,10 @@ run-one (1.18) unreleased; urgency=low
 
   * run-one:
     - remove duplicate code
+  * debian/control, debian/copyright, run-one:
+    - moved upstream to github
 
- -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 15 Jan 2014 16:33:22 -0600
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 29 Apr 2024 05:36:39 -0500
 
 run-one (1.17-0ubuntu1) trusty; urgency=low
 
