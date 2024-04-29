@@ -1,6 +1,8 @@
-# run\-one(1) - lightweight process manager; run just one instance at a time of some command and unique set of arguments (useful for cronjobs, eg)
+# run\-one(1)
 
-run\-one, 9 Jan 2011
+Lightweight process manager; run just one instance at a time of some command and unique set of arguments (useful for cronjobs, eg)
+
+# Usage
 
 ```
 run-one COMMAND [ARGS]
