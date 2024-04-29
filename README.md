@@ -1,6 +1,12 @@
 # run\-one(1)
 
-Lightweight process manager; run just one instance at a time of some command and unique set of arguments (useful for cronjobs, eg)
+Lightweight process manager
+
+ - run just one instance at a time of some command and unique set of arguments (useful for cronjobs, e.g.)
+ - run this instance of a command, killing others (useful for a hard restart of a command, e.g.)
+ - keep a command running, whether it succeeds or fails or terminates (useful for forcing retries/restarts, e.g.)
+ - run a command until it succeeds (useful for wget/curl downloads or rsyncs, e.g.)
+ - run a command until it fails (while/true type functionality)
 
 # Usage
 
