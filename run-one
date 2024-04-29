@@ -57,7 +57,7 @@ mkdir -p "$DIR"
 
 # Calculate the hash of the command and arguments
 CMD="$@"
-CMDHASH=$(echo "$CMD" | md5sum | awk '{print $1}')
+CMDHASH=$(echo "$CMD" | sha512sum | awk '{print $1}')
 FLAG="$DIR/$CMDHASH"
 
 base="$(basename $0)"
